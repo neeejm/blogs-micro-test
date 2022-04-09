@@ -78,9 +78,12 @@ async def receive_event(req: Request):
 
 @app.on_event("startup")
 async def sync_data():
-    async with AsyncClient() as ac:
-        res = await ac.get("http://localhost:8004/events")
-        events = res.json()
+    try:
+        async with AsyncClient() as ac:
+            res = await ac.get("http://localhost:8004/events")
+            events = res.json()
 
-        for event in events:
-            handle_events(json.loads(event))
+            for event in events:
+                handle_events(json.loads(event))
+    except:
+        print("no event bus running to sync.")
