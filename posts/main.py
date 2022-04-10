@@ -55,3 +55,8 @@ async def receive_event(req: Request):
     print("event: ", body["type"])
 
     return {"msg": "event reached"}
+
+
+@app.on_event("startup")
+async def on_start():
+    print("v2")
