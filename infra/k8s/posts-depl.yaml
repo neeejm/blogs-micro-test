@@ -6,11 +6,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      pod: posts
+        app: posts
   template:
     metadata:
       labels:
-        pod: posts
+        app: posts
     spec:
       containers:
         - name: posts

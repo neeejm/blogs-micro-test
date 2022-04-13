@@ -25,6 +25,11 @@ app.add_middleware(
 )
 
 
+@app.get("/")
+async def hello_world():
+    return {"msg": "hello world"}
+
+
 @app.get("/posts")
 async def get_posts():
     return posts
