@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: posts-srv
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: posts
   ports:
