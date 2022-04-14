@@ -8,5 +8,5 @@ COPY Pipfile.lock .
 RUN pipenv sync --system
 COPY . .
 
-CMD ["uvicorn", "main:app", "--port=80"]
 EXPOSE 80
+CMD ["uvicorn", "main:app", "--port=80"]
