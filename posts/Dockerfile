@@ -9,4 +9,4 @@ RUN pipenv sync --system
 COPY . .
 
 EXPOSE 80
-CMD ["uvicorn", "main:app", "--port=80"]
+CMD ["uvicorn", "main:app", "--port=80", "--host=0.0.0.0"]
