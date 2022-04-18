@@ -32,22 +32,3 @@ jobs:
                   file: ./posts/Dockerfile
                   push: true
                   tags: neeejm/blog-posts:latest
-
-    # CD:
-    #     name: Deploy to production server
-    #     needs: C
-    #     runs-on: ubuntu-latest
-    #     steps:
-    #         - name: executing remote ssh commands using pem file
-    #           uses: appleboy/ssh-action@master
-    #           with:
-    #               host: ${{ secrets.HOST }}
-    #               username: ${{ secrets.USERNAME }}
-    #               key: ${{ secrets.KEY }}
-    #               port: ${{ secrets.PORT }}
-    #               script_stop: true
-    #               script: |
-    #                   cd /home/ubuntu/workspace/discord-music-bot
-    #                   sudo docker-compose down
-    #                   sudo docker system prune -af
-    #                   sudo docker-compose up -d
