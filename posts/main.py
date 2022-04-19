@@ -43,7 +43,7 @@ async def create_post(post: Post):
     # emit event
     async with AsyncClient() as ac:
         res = await ac.post(
-            "http://localhost:8004/events",
+            "http://event-bus-svc:80/events",
             json={
                 "type": "postCreated",
                 "data": {"id": str(post.id), "title": post.title, "content": post.content},
