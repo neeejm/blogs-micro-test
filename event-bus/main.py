@@ -24,15 +24,15 @@ async def publish_event(req: Request):
         print("posts service: ", res.status_code)
 
         # publish event to comments service
-        # res = await ac.post("http://localhost:8001/events", data=body)
-        # print("comments service: ", res.status_code)
+        res = await ac.post("http://comments-svc:80/events", data=body)
+        print("comments service: ", res.status_code)
 
         # publish event to query service
-        # res = await ac.post("http://localhost:8003/events", data=body)
-        # print("query service: ", res.status_code)
+        res = await ac.post("http://query-svc:80/events", data=body)
+        print("query service: ", res.status_code)
 
         # publish event to moderation service
-        # res = await ac.post("http://localhost:8002/events", data=body)
-        # print("moderation service: ", res.status_code)
+        res = await ac.post("http://moderation:80/events", data=body)
+        print("moderation service: ", res.status_code)
 
     return {"msg": "events published"}
