@@ -16,7 +16,7 @@ async def moderate(req: Request):
         # emit event
         async with AsyncClient() as ac:
             res = await ac.post(
-                "http://localhost:8004/events",
+                "http://event-bus-svc:80/events",
                 json={
                     "type": "commentModerated",
                     "data": {

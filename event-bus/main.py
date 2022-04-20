@@ -32,7 +32,7 @@ async def publish_event(req: Request):
         print("query service: ", res.status_code)
 
         # publish event to moderation service
-        res = await ac.post("http://moderation:80/events", data=body)
+        res = await ac.post("http://moderation-svc:80/events", data=body)
         print("moderation service: ", res.status_code)
 
     return {"msg": "events published"}

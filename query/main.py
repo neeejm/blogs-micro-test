@@ -80,7 +80,7 @@ async def receive_event(req: Request):
 async def sync_data():
     try:
         async with AsyncClient() as ac:
-            res = await ac.get("http://localhost:8004/events")
+            res = await ac.get("http://event-bus-svc:80/events")
             events = res.json()
 
             for event in events:

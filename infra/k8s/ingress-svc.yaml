@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-svc
+  labels:
+    name: ingress-svc
+spec:
+  rules:
+    - host: blog.com
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/posts"
+            backend:
+              service:
+                name: posts-svc
+                port:
+                  number: 80

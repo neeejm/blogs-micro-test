@@ -42,7 +42,7 @@ async def create_comment(post_id: UUID, comment: Comment):
     # emit event
     async with AsyncClient() as ac:
         res = await ac.post(
-            "http://localhost:8004/events",
+            "http://event-bus-svc:80/events",
             json={
                 "type": "commentCreated",
                 "data": {
@@ -70,7 +70,7 @@ async def receive_event(req: Request):
 
         async with AsyncClient() as ac:
             res = await ac.post(
-                "http://localhost:8004/events",
+                "http://event-bus-svc:80/events",
                 json={
                     "type": "commentUpdated",
                     "data": {
