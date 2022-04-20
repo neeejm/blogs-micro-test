@@ -9,7 +9,7 @@ const PostForm = () => {
     const doPost = (event) => {
         event.preventDefault()
 
-        axios.post(BASE_URL + "/posts", {
+        axios.post(BASE_URL + "/posts/create", {
             title,
             content
         }).then()

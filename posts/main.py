@@ -35,7 +35,7 @@ async def get_posts():
     return posts
 
 
-@app.post("/posts", status_code=status.HTTP_201_CREATED)
+@app.post("/posts/create", status_code=status.HTTP_201_CREATED)
 async def create_post(post: Post):
     post.id = uuid4()
     # add to db(mem)

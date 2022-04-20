@@ -1,28 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: query-depl
+  name: client-depl
 spec:
-  replicas: 1
   selector:
     matchLabels:
-      app: query
+      app: client
   template:
     metadata:
       labels:
-        app: query
+        app: client
     spec:
       containers:
-        - name: query
-          image: neeejm/blog-query
+        - name: client
+          image: neeejm/blog-client
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: query-svc
+  name: client-svc
 spec:
   selector:
-    app: query
+    app: client
   ports:
-    - port: 80
-      targetPort: 80
+    - port: 3000
+      targetPort: 3000
