@@ -2,12 +2,13 @@ import CommentForm from "./CommentForm"
 import { useState, useEffect } from "react";
 import axios from "axios";
 import CommentsList from "./CommentsList";
+import { BASE_URL } from "../constants";
 
 const PostList = () => {
     const [posts, setPosts] = useState([])
 
     const fetchPosts = () => {
-        axios.get("http://localhost:8003/posts")
+        axios.get(BASE_URL + "/posts")
             .then((res => {
                 setPosts(res.data)
             }))

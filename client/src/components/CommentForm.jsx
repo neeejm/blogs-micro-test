@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useState } from "react"
+import { BASE_URL } from "../constants"
 
 const CommentForm = ({ postId }) => {
     const [comment, setComment] = useState("")
@@ -7,7 +8,7 @@ const CommentForm = ({ postId }) => {
     const doComment = (event) => {
         event.preventDefault()
 
-        axios.post(`http://localhost:8001/posts/${postId}/comments`, {
+        axios.post(`${BASE_URL}/posts/${postId}/comments`, {
             "content": comment
         })
             .then(setComment(""))

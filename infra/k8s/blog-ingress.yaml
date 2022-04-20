@@ -1,16 +1,23 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ingress-svc
-  labels:
-    name: ingress-svc
+  name: blog-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
 spec:
   rules:
-    - host: blog.com
+    - host: blog.local
       http:
         paths:
           - pathType: Prefix
             path: "/posts"
+            backend:
+              service:
+                name: posts-svc
+                port:
+                  number: 80
+          - pathType: Exact
+            path: "/"
             backend:
               service:
                 name: posts-svc

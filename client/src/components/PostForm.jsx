@@ -1,5 +1,6 @@
 import { useState } from "react"
 import axios from "axios"
+import { BASE_URL } from "../constants"
 
 const PostForm = () => {
     const [title, setTitle] = useState("")
@@ -8,7 +9,7 @@ const PostForm = () => {
     const doPost = (event) => {
         event.preventDefault()
 
-        axios.post("http://localhost:8000/posts", {
+        axios.post(BASE_URL + "/posts", {
             title,
             content
         }).then()
