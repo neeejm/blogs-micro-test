@@ -21,7 +21,7 @@ spec:
             path: /posts/(.*)/comments
             backend:
               service:
-                name: comment-svc
+                name: comments-svc
                 port:
                   number: 80
           - pathType: Exact
